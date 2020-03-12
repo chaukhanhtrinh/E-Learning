@@ -1,0 +1,16 @@
+{{#with pagination }}
+<ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" href="{{link}}/page={{decrPage page}}" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+      {{#MakePagin page link}}
+    
+      {{/MakePagin}}
+      <a class="page-link" href="{{link}}/page={{incPage page}}" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+  {{/with}}
