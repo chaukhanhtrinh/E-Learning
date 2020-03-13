@@ -1,0 +1,20 @@
+<div class="row">
+    {{#each dataContenSide }}
+    <div class="col-md-4 py-2">
+        <a href="/product/{{ProID}}/detail" class="list-group-item-action">
+            <div class="card h-100">
+                <img src="/public/img/{{ProID}}/main.jpg" class=" card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ProName}}</h5>
+                    <p class="card-text">{{TinyDes}}</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    {{/each}}
+</div>
+{{#if dataContenSide}}
+    <div class="row justify-content-center">
+        {{> home/pagination}}
+    </div>
+{{/if}}

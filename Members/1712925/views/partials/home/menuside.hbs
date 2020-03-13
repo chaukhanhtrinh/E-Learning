@@ -1,0 +1,7 @@
+<h5 class="card-header badge-dark">Products</h5>
+<ul class="list-group">
+    {{#each dataMenu }}
+    <a href="/cat/{{CatID}}"
+        class="list-group-item list-group-item-action{{#if isActive}} active{{/if}}">{{CatName}}</a>
+    {{/each}}
+</ul>
