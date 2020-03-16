@@ -121,7 +121,7 @@ Handlebars.registerHelper('MakePagin',(page,link ,option)=>{
 })
 
 // khởi tạo server
-var server = app.listen(3000, () => {
+var server = app.listen(process.env.port||3000, () => {
   var port = server.address().port;
 
   console.log(`Example app listening at ${port}`);
