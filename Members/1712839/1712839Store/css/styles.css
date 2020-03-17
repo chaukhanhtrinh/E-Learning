@@ -1,0 +1,166 @@
+.book-cover {
+    height: 300px;
+}
+
+.book-price {
+    font-weight: bold;
+    margin-top: .25em;
+    color: #333;
+}
+
+.book-summary {
+    min-height: 150px;
+}
+
+.book-details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination {
+    justify-content: center;
+}
+
+
+/* Process Steps */
+
+@media (min-width: 992px) {
+    .steps {
+        padding: 0px;
+        background: transparent;
+        list-style: none;
+        overflow: hidden;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-radius: 4px;
+        display: table-row;
+    }
+    .steps>li {
+        display: table-cell;
+        vertical-align: middle;
+        width: 1%;
+        height: 0;
+    }
+    .steps>li+li:before {
+        padding: 0;
+        content: "";
+    }
+    .steps li a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 0 10px 35px;
+        position: relative;
+        display: inline-block;
+        width: calc(100% - 10px);
+        background-color: #999;
+        text-align: center;
+        height: 100%;
+    }
+    .steps li.completed a {
+        background: #343a40;
+    }
+    .steps li.completed a:after {
+        border-left: 30px solid #343a40;
+    }
+    .steps li.active a {
+        background: #28a745;
+    }
+    .steps li.active a:after {
+        border-left: 30px solid #28a745;
+    }
+    .steps li:first-child a {
+        padding-left: 15px;
+    }
+    .steps li:last-of-type a {
+        width: calc(100% - 38px);
+    }
+    .steps li a:before {
+        content: " ";
+        display: block;
+        width: 0;
+        height: 0;
+        border-top: 50px solid transparent;
+        /* height not equal parent */
+        border-bottom: 50px solid transparent;
+        /* height not equal parent */
+        border-left: 30px solid white;
+        position: absolute;
+        top: 50%;
+        margin-top: -50px;
+        /* height not equal parent */
+        margin-left: 1px;
+        left: 100%;
+        z-index: 1;
+    }
+    .steps li a:after {
+        content: " ";
+        display: block;
+        width: 0;
+        height: 0;
+        border-top: 50px solid transparent;
+        /* height not equal parent */
+        border-bottom: 50px solid transparent;
+        /* height not equal parent */
+        border-left: 30px solid #999;
+        position: absolute;
+        top: 50%;
+        margin-top: -50px;
+        /* height not equal parent */
+        left: 100%;
+        z-index: 2;
+    }
+}
+
+@media (max-width: 991px) {
+    .steps {
+        padding: 8px 15px;
+        margin-bottom: 20px;
+        list-style: none;
+        background-color: #f5f5f5;
+        border-radius: 4px;
+        overflow: auto;
+    }
+    .steps>li {
+        display: block;
+    }
+    .steps li a {
+        color: #777;
+    }
+    .steps>li:before {
+        padding: 0 5px;
+        color: #ccc;
+        content: "\e080";
+        font-family: 'Glyphicons Halflings';
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    .steps li.completed:before {
+        content: "\e013";
+        color: #3c763d;
+        font-family: 'Glyphicons Halflings';
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    .steps li.completed a {
+        color: inherit;
+    }
+    .steps li.active:before {
+        color: #8a6d3b;
+    }
+    .steps>.active {
+        color: #999;
+    }
+    .steps li:first-child a {
+        padding-left: inherit;
+    }
+    .steps li:last-of-type a {
+        width: inherit;
+    }
+}

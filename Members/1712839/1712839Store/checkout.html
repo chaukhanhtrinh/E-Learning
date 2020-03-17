@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>1712839's Store</title>
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="container-fluid bg-dark">
+        <header class="container">
+            <nav class="navbar navbar-expand-md navbar-blue bg-dark">
+                <a class="navbar-collapse text-success" href="/index.html"><i class="fa fa-book"></i> 1712839's Store</a>
+                <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav m-auto mt-2 mt-lg-0">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/users/profile.html">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/users/logout.html">Logout</a>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0" method="GET" action="/search">
+                        <div class="input-group input-group-sm">
+                            <input name="query" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Search...">
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-secondary btn-number">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <a class="btn btn-success btn-sm ml-3" href="/cart.html">
+                            <i class="fa fa-shopping-cart"></i> Cart
+                            <span class="badge badge-light">0</span>
+                        </a>
+                    </form>
+                </div>
+            </nav>
+        </header>
+    </div>    <!-- Checkout -->
+<!-- Process Steps -->
+<div class="container my-5">
+    <ul class="steps">
+        <li class="completed"><a href="/cart.html">Cart</a></li>
+        <li class="active"><a href="/cart/checkout.html">Shipping Address</a></li>
+        <li><a href="#">Payment</a></li>
+    </ul>
+</div>
+<div class="container my-3">
+    <div class="row">
+        <div class="col-md-4 order-md-2 mb-4">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-muted">Your cart</span>
+                <span class="badge badge-secondary badge-pill">0</span>
+            </h4>
+            <ul class="list-group mb-3">
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>Total (USD)</span>
+                    <strong>$0.00</strong>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-8 order-md-1">
+            <h4 class="mb-3">Shipping address</h4>
+            <form class="needs-validation" novalidate method="post" action="/cart/checkout/shipping">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="firstName">First name</label>
+                        <input type="text" name="firstname" class="form-control" id="firstName" placeholder="" value="" required>
+                        <div class="invalid-feedback">
+                            Valid first name is required.
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="lastName">Last name</label>
+                        <input type="text" name="lastname" class="form-control" id="lastName" placeholder="" value="" required>
+                        <div class="invalid-feedback">
+                            Valid last name is required.
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="username">Email</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">@</span>
+                        </div>
+                        <input type="email" name="email" class="form-control" id="username" placeholder="you@example.com" required>
+                        <div class="invalid-feedback" style="width: 100%;">
+                            Your email is required.
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="phone">Phone</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                        </div>
+                        <input type="text" name="phone" class="form-control" id="phone" placeholder="Phone number" required>
+                        <div class="invalid-feedback" style="width: 100%;">
+                            Your phone number is required.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="address">Address</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-road"></i></span>
+                        </div>
+                        <input type="text" name="address" class="form-control" id="address" placeholder="1234 Main St" required>
+                        <div class="invalid-feedback">
+                            Please enter your shipping address.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-5 mb-3">
+                        <label for="country">Country</label>
+                        <select name="country" class="custom-select d-block w-100" id="country" required>
+                            <option value="">Choose...</option>
+                            <option value="US">United States</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please select a valid country.
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="state">State</label>
+                        <select name="state" class="custom-select d-block w-100" id="state" required>
+                            <option value="">Choose...</option>
+                            <option value="Ca">California</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please provide a valid state.
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="zip">Zip</label>
+                        <input type="text" name="zip" class="form-control" id="zip" placeholder="" required>
+                        <div class="invalid-feedback">
+                            Zip code required.
+                        </div>
+                    </div>
+                </div>
+                
+                <hr class="mb-4">
+                <button class="btn btn-success btn-lg btn-block" type="submit">Continue to checkout</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+    <!-- Footer -->
+    <div class="container-fluid bg-dark py-3">
+        <footer class="container text-light text-center">
+            Copyright &copy; 2020 by 1712839-ChauNguyenKhanhTrinh
+        </footer>
+    </div>    
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/main.js"></script>
+
+</body>
+
+</html>
