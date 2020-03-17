@@ -1,0 +1,41 @@
+<!-- Header -->
+    <div class="container-fluid bg-dark">
+        <header class="container">
+            <nav class="navbar navbar-expand-md navbar-blue bg-dark">
+                <a class="navbar-collapse text-success" href="/"><i class="fa fa-book"></i> 1712839's Store</a>
+                <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav m-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/aboutme">About Me</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/users/register">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/users/login">Login</a>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0" method="GET" action="/search">
+                        <div class="input-group input-group-sm">
+                            <input name="query" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Search...">
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-secondary btn-number">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <a class="btn btn-success btn-sm ml-3" href="/cart">
+                            <i class="fa fa-shopping-cart"></i> Cart
+                            <span class="badge badge-light">0</span>
+                        </a>
+                    </form>
+                </div>
+            </nav>
+        </header>
+    </div>  
