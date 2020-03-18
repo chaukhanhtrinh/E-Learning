@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand logo_h" href="index.html"><img src="../../../public/img/logo.png" alt=""></a>
+  <a class="navbar-brand logo_h" href="/"><img src="../../../public/img/logo.png" alt=""></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -13,29 +13,6 @@
       <li class="nav-item">
         <a class="nav-link" href="/category">Category</a>
       </li>
-      {{#if user}}
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          Hi user
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="/account/profile">profile</a>
-          <a class="dropdown-item" href="/account/login">logout</a>
-        </div>
-      </li>
-      {{else}}
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            account
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="/account/register">register</a>
-            <a class="dropdown-item" href="/account/login">login</a>
-          </div>
-        </li>
-      {{/if}}
 
     </ul>
   </div>

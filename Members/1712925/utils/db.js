@@ -2,17 +2,16 @@ var mysql = require('mysql');
 
 var connection =()=> {
   return  mysql.createConnection({
-    /*host: 'localhost',
-    user: 'root',
-    password: 'vuong310',
-    database: 'ql_banhang'*/
-
     host: 'db4free.net',
     port: '3306',
     user: 'phamvanvuong',
     password: 'vuong310',
     database: 'ql_banhang'
 
+    /*host: 'localhost',
+    user: 'root',
+    password: 'vuong310',
+    database: 'ql_banhang'*/
   });
 }
 

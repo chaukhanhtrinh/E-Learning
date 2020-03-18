@@ -1,0 +1,47 @@
+ <!-- Checkout -->
+<!-- Process Steps -->
+<div class="container my-5">
+    <ul class="steps">
+        <li class="completed"><a href="/cart.html">Cart</a></li>
+        <li class="completed"><a href="/cart/checkout.html">Shipping Address</a></li>
+        <li class="active"><a href="#">Payment</a></li>
+    </ul>
+</div>
+<div class="container my-3">
+    <div class="row">
+        <div class="col-md-4 order-md-2 mb-4">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-muted">Your cart</span>
+                <span class="badge badge-secondary badge-pill">0</span>
+            </h4>
+            <ul class="list-group mb-3">
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>Total (USD)</span>
+                    <strong>$0.00</strong>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-8 order-md-1">
+            <form class="needs-validation" novalidate method="POST" action="/cart/checkout/payment">
+                <h4 class="mb-3">Payment Method</h4>
+                <div class="d-block my-3">
+                    <div class="custom-control custom-radio">
+                        <input id="cod" name="paymentMethod" value="COD" type="radio" class="custom-control-input" checked required>
+                        <label class="custom-control-label" for="cod">COD</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input id="vnpay" name="paymentMethod" value="VNPay" type="radio" class="custom-control-input" required>
+                        <label class="custom-control-label" for="vnpay">VNPay</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input id="paypal" name="paymentMethod" value="Paypal" type="radio" class="custom-control-input" required>
+                        <label class="custom-control-label" for="paypal">Paypal</label>
+                    </div>
+                </div>
+                
+                <hr class="mb-4">
+                <button class="btn btn-success btn-lg btn-block" type="submit">Confirm to Pay Now</button>
+            </form>
+        </div>
+    </div>
+</div>

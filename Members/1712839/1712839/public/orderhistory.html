@@ -23,9 +23,6 @@
                 </button>
                 <div class="collapse navbar-collapse" id="collapsibleNavId">
                     <ul class="navbar-nav m-auto mt-2 mt-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/aboutme.html">About Me</a>
-                        </li>
                         <li class="nav-item active">
                             <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
                         </li>
@@ -53,12 +50,61 @@
                 </div>
             </nav>
         </header>
-    </div>    <!-- Comfirm -->
-<section class="jumbotron text-center">
-    <div class="container text-danger">
-        <h1 class="jumbotron-fluid">PAYMENT COMPLETE</h1>  
+    </div>    <section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-default">YOUR ORDER HISTORY</h1>
     </div>
 </section>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">OrderId</th>
+                <th scope="col">Datetime</th>
+                <th scope="col">Details</th>
+                <th scope="col">Total Cost</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">170</th>
+                <td>3/16/2020, 4:19:19 AM</td>
+                <td>
+                    <a href="/users/orders/170">Order details</a>
+                </td>
+                <td>$ 0.00</td>
+                <td>Processing</td>
+            </tr>
+            <tr>
+                <th scope="row">171</th>
+                <td>3/16/2020, 4:19:25 AM</td>
+                <td>
+                    <a href="/users/orders/171">Order details</a>
+                </td>
+                <td>$ 0.00</td>
+                <td>Processing</td>
+            </tr>
+            <tr>
+                <th scope="row">172</th>
+                <td>3/16/2020, 4:43:50 AM</td>
+                <td>
+                    <a href="/users/orders/172">Order details</a>
+                </td>
+                <td>$ 0.00</td>
+                <td>Processing</td>
+            </tr>
+            <tr>
+                <th scope="row">173</th>
+                <td>3/16/2020, 4:49:03 AM</td>
+                <td>
+                    <a href="/users/orders/173">Order details</a>
+                </td>
+                <td>$ 0.00</td>
+                <td>Processing</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
     <!-- Footer -->
     <div class="container-fluid bg-dark py-3">
