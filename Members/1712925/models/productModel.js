@@ -2,13 +2,13 @@ const db = require('../utils/db');
 const tbnNameProduct = 'products';
 
 exports.productsHome = async (page = 0) => {
-    const sql = `SELECT ProID,ProName,TinyDes FROM ${tbnNameProduct}
+    const sql = `SELECT ProID,ProName,TinyDes,Price FROM ${tbnNameProduct}
                 limit ${(page - 1) * 9},9;`;
     const row = await db.load(sql);
     return row;
 };
 exports.productsID = async (id, page = 1) => {
-    const sql = `SELECT ProID,ProName,TinyDes FROM ${tbnNameProduct}
+    const sql = `SELECT ProID,ProName,TinyDes,Price FROM ${tbnNameProduct}
                 where CatID=${id}
                 limit ${(page - 1) * 9},9;`;
     const row = await db.load(sql);
