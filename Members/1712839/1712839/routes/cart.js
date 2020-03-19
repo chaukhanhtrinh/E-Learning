@@ -13,3 +13,5 @@ router.post('/shipping', function(req, res){
 router.post('/payment', function(req, res){
 	res.render('payment');
 });
+
+module.exports = router;

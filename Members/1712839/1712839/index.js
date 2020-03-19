@@ -20,17 +20,37 @@ app.set('view engine', 'hbs');
 
 
 // Define your route here
+var userRouter = require('./routes/users')
+app.use('/users',userRouter);
+
+var cartRouter = require('./routes/cart')
+app.use('/cart',cartRouter);
+ 
+var productsRouter = require('./routes/products')
+app.use('/products',productsRouter);
+
+
+
+app.get('/aboutme', function(req, res){
+	res.render('aboutme');
+});
+
 app.get('/', function(req, res){
-	res.render('index');
+	res.redirect('products');
 });
-app.get('/users/register', function(req, res){
-	res.render('register');
+
+
+app.get('/error', function(req, res){
+	res.render('error');
 });
-app.get('/cart', function(req, res){
-	res.render('cart');
-});
-app.get('/users/login', function(req, res){
-	res.render('login');
+
+
+//Create database
+var models = require('./models');
+app.get('/sync', function(req, res){
+	models.sequelize.sync().then(function(){
+		res.send('database sync completed!');
+	});
 });
 
 
