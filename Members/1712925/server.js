@@ -47,6 +47,14 @@ app.use(function (req, res, next) {
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
 app.set('views', __dirname + '/views');
+
+/*var server = app.listen(process.env.port||3000, () => {
+  var port = server.address().port;
+
+  console.log(`Example app listening at ${port}`);
+})*/
+
+
 //contrller của trang chi tiết
 app.use('/product',detailProModel);
 // Controller của trang category
@@ -90,6 +98,7 @@ app.get('/category', async (req, res) => {
 
 
 
+
 // tạo vòng lặp for
 Handlebars.registerHelper('for', function (from, to, block) {
   var accum = '';
@@ -121,9 +130,8 @@ Handlebars.registerHelper('MakePagin',(page,link ,option)=>{
 })
 
 // khởi tạo server
-var server = app.listen(process.env.port||3000, () => {
-  var port = server.address().port;
-
-  console.log(`Example app listening at ${port}`);
-})
+app.set('port',process.env.PORT||3000);
+app.listen(app.get('port'),()=>{
+  console.log(`Server is running at port ${app.get('port')}`)
+});
 

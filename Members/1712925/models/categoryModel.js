@@ -1,5 +1,5 @@
 const db = require('../utils/db');
-const tbnNameCategory = 'Categories';
+const tbnNameCategory = 'categories';
 const tbnNameProduct = 'products';
 
 exports.category=async()=>{
