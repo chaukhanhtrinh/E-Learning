@@ -33,15 +33,15 @@ app.get('/sync', (req,res)  => {
 
 app.get('/:page', (req, res) => {
     let banner = {
-      blog:'Our Blog',
-      category:'Shop category',
-      cart:'Shopping Cart',
-      checkout:'Product Checkout',
-      confirmation:'Order Confirmation',
+      blog:'ĐỒNG HỒ',
+      category:'THỂ LOẠI',
+      cart:'VẬT DỤNG GIA ĐÌNH',
+      checkout:'MỸ PHẨM',
+      confirmation:'CHI TIẾT',
       index:'Nguyễn Minh Trí',
-      login:'Login / Register',
-      register:'Register',
-      single_blog: 'Blog Detail',
+      login:'VẬT DỤNG GIA ĐÌNH',
+      register:'CHI TIẾT',
+      single_blog: 'MY PHAM',
       single_product: 'Shop Single',
       tracking_order: 'Order Tracking',
 
