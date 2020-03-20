@@ -29,6 +29,12 @@ app.use('/cart',cartRouter);
 var productsRouter = require('./routes/products')
 app.use('/products',productsRouter);
 
+var litBooksRouter = require('./routes/litBooks')
+app.use('/litBooks',litBooksRouter);
+
+var ecoBooksRouter = require('./routes/ecoBooks')
+app.use('/ecoBooks',ecoBooksRouter);
+
 
 
 app.get('/aboutme', function(req, res){
@@ -46,12 +52,12 @@ app.get('/error', function(req, res){
 
 
 //Create database
-var models = require('./models');
+ /* var models = require('./models');
 app.get('/sync', function(req, res){
 	models.sequelize.sync().then(function(){
 		res.send('database sync completed!');
 	});
-});
+});  */
 
 
 // Set Server Port & Start Server
