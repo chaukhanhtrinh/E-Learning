@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 --
 create database webcourse;
 use webcourse;
+
 drop table if exists `adminusers`;
 CREATE TABLE `adminUsers` (
   `id` int(11) NOT NULL,
