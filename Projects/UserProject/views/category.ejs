@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="vi" class="no-js">
+
+<head>
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Favicon-->
+	<link rel="shortcut icon" href="img/fav.png">
+	<!-- Author Meta -->
+	<meta name="author" content="CodePixar">
+	<!-- Meta Description -->
+	<meta name="description" content="">
+	<!-- Meta Keyword -->
+	<meta name="keywords" content="">
+	<!-- meta character set -->
+	<meta charset="UTF-8">
+	<!-- Site Title -->
+	<title>Yasuo Shop</title>
+
+	<!--
+            CSS
+            ============================================= -->
+	<link rel="stylesheet" href="css/linearicons.css">
+	<link rel="stylesheet" href="css/owl.carousel.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/themify-icons.css">
+	<link rel="stylesheet" href="css/nice-select.css">
+	<link rel="stylesheet" href="css/nouislider.min.css">
+	<link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+
+<body id="category">
+
+	<!-- Start Header Area -->
+	<%- include('header'); -%>
+	<!-- End Header Area -->
+
+	<!-- Start Banner Area -->
+	<section class="banner-area organic-breadcrumb">
+		<div class="container">
+			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+				<div class="col-first">
+					<h1 style="font-family:time new romans">Danh Sách Sản Phẩm</h1>
+					<nav class="d-flex align-items-center">
+						<a href="index">Trang chủ<span class="lnr lnr-arrow-right"></span></a>
+						<a href="category">Cửa hàng<span class="lnr lnr-arrow-right"></span></a>
+						<a href="category">Danh sách sản phẩm</a>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Banner Area -->
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-3 col-lg-4 col-md-5">
+				<div class="sidebar-filter mt-50">
+					<div class="top-filter-head">Lọc sản phẩm</div>
+
+					<form action="/category" method="GET">
+						<div class="common-filter">
+							<div class="head">Sắp xếp</div>
+							<select name="sortby" class="form-control">
+								<% if(sortby=="none"){ %>
+								<option value="none" selected="true" >None</option>
+								<% }else{ %>
+								<option value="none">None</option>
+								<% } %>
+
+								<% if(sortby=="giatang"){ %>
+								<option value="giatang" selected="true" >Giá tăng</option>
+								<% }else{ %>
+								<option value="giatang">Giá tăng</option>
+								<% } %>
+
+								<% if(sortby=="giagiam"){ %>
+								<option value="giagiam" selected="true" >Giá giảm</option>
+								<% }else{ %>
+								<option value="giagiam">Giá giảm</option>
+								<% } %>
+
+								<% if(sortby=="soluongtang"){ %>
+								<option value="soluongtang" selected="true" >Số lượng sản phẩm tăng</option>
+								<% }else{ %>
+								<option value="soluongtang">Số lượng sản phẩm tăng</option>
+								<% } %>
+
+								<% if(sortby=="soluonggiam"){ %>
+								<option value="soluonggiam" selected="true" >Số lượng sản phẩm giảm</option>
+								<% }else{ %>
+								<option value="soluonggiam">Số lượng sản phẩm giảm</option>
+								<% } %>
+
+								<% if(sortby=="a-z"){ %>
+								<option value="a-z" selected="true" >a - z</option>
+								<% }else{ %>
+								<option value="a-z">a - z</option>
+								<% } %>
+							</select>
+							<div class="head">MÔN HỌC</div>
+							<ul>
+								<% if(brand=="none"){ %>
+								<li class="filter-list"><input class="pixel-radio" type="radio" id="nonebr" name="brand" value="none" checked="true"><label for="nonebr">Tất cả</label></li>
+								<% }else{ %>
+								<li class="filter-list"><input class="pixel-radio" type="radio" id="nonebr" name="brand" value="none"><label for="nonebr">Tất cả</label></li>
+								<% } %>
+
+								<% if(brand=="Math"){ %>
+								<li class="filter-list"><input class="pixel-radio" type="radio" id="nike" name="brand" value="Math" checked="true"><label for="nike">Math</label></li>
+								<% }else{ %>
+								<li class="filter-list"><input class="pixel-radio" type="radio" id="nike" name="brand" value="Math"><label for="nike">Math</label></li>
+								<% } %>
+
+								<% if(brand=="Literature"){ %>
+								<li class="filter-list"><input class="pixel-radio" type="radio" id="adidas" name="brand" value="Literature" checked="true"><label for="adidas">Literature</label></li>
+								<% }else{ %>
+								<li class="filter-list"><input class="pixel-radio" type="radio" id="adidas" name="brand" value="Literature"><label for="adidas">Literature</label></li>
+								<% } %>
+
+								<% if(brand=="Chemistry"){ %>
+								<li class="filter-list"><input class="pixel-radio" type="radio" id="vans" name="brand" value="Chemistry" checked="true"><label for="vans">Chemistry</label></li>
+								<% }else{ %>
+								<li class="filter-list"><input class="pixel-radio" type="radio" id="vans" name="brand" value="Chemistry"><label for="vans">Chemistry</label></li>
+								<% } %>
+
+								<% if(brand=="Physics"){ %>
+								<li class="filter-list"><input class="pixel-radio" type="radio" id="bitis" name="brand" value="Physics" checked="true"><label for="bitis">Physics</label></li>
+								<% }else{ %>
+								<li class="filter-list"><input class="pixel-radio" type="radio" id="bitis" name="brand" value="Physics"><label for="bitis">Physics</label></li>
+								<% } %>
+
+								<% if(brand=="English"){ %>
+								<li class="filter-list"><input class="pixel-radio" type="radio" id="sneaker" name="brand" value="English" checked="true"><label for="sneaker">English</label></li>
+								<% }else{ %>
+								<li class="filter-list"><input class="pixel-radio" type="radio" id="sneaker" name="brand" value="English"><label for="sneaker">English</label></li>
+								<% } %>
+							</ul>
+						</div>
+						<div class="common-filter">
+							<div class="head">GIÁO VIÊN</div>
+							<ul>
+								<% if(color=="none"){ %>
+								<li class="filter-list"><input class="pixel-radio" type="radio" id="nonecl" name="color" value="none" checked="true"><label for="nonecl">Tất cả</label></li>
+								<% }else{ %>
+								<li class="filter-list"><input class="pixel-radio" type="radio" id="nonecl" name="color" value="none"><label for="nonecl">Tất cả</label></li>
+								<% } %>
+
+								<% if(color=="Bui Thi Hanh"){ %>
+								<li class="filter-list"><input class="pixel-radio" type="radio" id="black" name="color" value="Bui Thi Hanh" checked="true"><label for="black">Bui Thi Hanh</label></li>
+								<% }else{ %>
+								<li class="filter-list"><input class="pixel-radio" type="radio" id="black" name="color" value="Bui Thi Hanh"><label for="black">Bui Thi Hanh</label></li>
+								<% } %>
+
+								<% if(color=="Do Ngoc Ha"){ %>
+								<li class="filter-list"><input class="pixel-radio" type="radio" id="brown" name="color" value="Do Ngoc Ha" checked="true"><label for="brown">Do Ngoc Ha</label></li>
+								<% }else{ %>
+								<li class="filter-list"><input class="pixel-radio" type="radio" id="brown" name="color" value="Do Ngoc Ha"><label for="brown">Do Ngoc Ha</label></li>
+								<% } %>
+
+								<% if(color=="Tuan Quynh"){ %>
+								<li class="filter-list"><input class="pixel-radio" type="radio" id="red" name="color" value="Tuan Quynh" checked="true"><label for="red">Tuan Quynh</label></li>
+								<% }else{ %>
+								<li class="filter-list"><input class="pixel-radio" type="radio" id="red" name="color" value="Tuan Quynh"><label for="red">Tuan Quynh</label></li>
+								<% } %>
+
+								<% if(color=="Nguyen Van Hung"){ %>
+								<li class="filter-list"><input class="pixel-radio" type="radio" id="grey" name="color" value="Nguyen Van Hung" checked="true"><label for="grey">Nguyen Van Hung</label></li>
+								<% }else{ %>
+								<li class="filter-list"><input class="pixel-radio" type="radio" id="grey" name="color" value="Nguyen Van Hung"><label for="grey">Nguyen Van Hung</label></li>
+								<% } %>
+
+								<% if(color=="Pham Van Nam"){ %>
+								<li class="filter-list"><input class="pixel-radio" type="radio" id="white" name="color" value="Pham Van Nam" checked="true"><label for="white">Pham Van Nam</label></li>
+								<% }else{ %>
+								<li class="filter-list"><input class="pixel-radio" type="radio" id="white" name="color" value="Pham Van Nam"><label for="white">Pham Van Nam</label></li>
+								<% } %>
+							</ul>
+						</div>
+						<p></p>
+						<div style="text-align:center"><button type="submit" class="btn btn-outline-dark">Lọc</button></div>
+					</form>
+					<!-- <p></p>
+					<div style="text-align:center"><button type="submit" class="btn btn-outline-dark">Lọc</button></div> -->
+                    
+				</div>
+			</div>
+			<div class="col-xl-9 col-lg-8 col-md-7">
+				
+				<!-- Start Best Seller -->
+				<section class="lattest-product-area pb-40 category-list">
+					<div class="row">
+						<h6 >Nhấn biểu tượng &nbsp</h6> 
+						<span class="lnr lnr-move"></span> 
+						<h6>&nbsp để xem chi tiết sản phẩm</h6>
+						<ul id="myUL" style="display: inline-block;">
+						<% data.forEach(function(item){%>
+                        <!-- single product -->
+                        <li style="float: left; list-style: outside none none;" id="<%=item.makhoahoc%>">
+						<div style="margin-right: 20px;"> 
+							<div class="single-product" >
+								<img   style="width:200px;height:200px;" src="img/product/<%=item.anh%>" alt="">
+								<div class="product-details">
+                                        <h6 >  <%=item.tenkhoahoc%></h6>
+                                        <div class="price">
+                                            <h6 ><%=item.giamoi%></h6>
+                                            <h6 class="l-through">$<%=item.giacu%></h6>
+                                        </div>
+									<div class="prd-bottom">
+
+										<a href="/add-to-cart/<%=item.makhoahoc%>" class="social-info">
+											<span class="ti-bag"></span>
+											<p class="hover-text">Thêm</p>
+										</a>
+										<a href="" class="social-info">
+											<span class="lnr lnr-heart"></span>
+											<p class="hover-text">Thả tim</p>
+										</a>
+										<a href="/chitiet<%=item.makhoahoc%>" class="social-info">
+											<span class="lnr lnr-move"></span>
+											<p class="hover-text">Xem thêm</p>
+										</a>
+									</div>
+								</div>
+							</div>
+                        </div>
+                        </li>
+                        <% }) %>
+                    </ul>
+					</div>
+				</section>
+				<nav aria-label="Page navigation example" class="nav-custom">
+					  <ul class="pagination">
+					    <li class="page-item">
+					      <a class="page-link" href="/category?page=<%=curpage - 1%>" aria-label="Previous">
+					        <span aria-hidden="true">&laquo;</span>
+					        <span class="sr-only">Previous</span>
+					      </a>
+					    </li>
+				    	<% if(curpage==1){ %>
+					     <li class="page-item"><a class="page-link" href="/category?page=1&brand=<%=brand%>&color=<%=color%>&sortby=<%=sortby%>">1</a></li>
+					     <li class="page-item"><a class="page-link" href="/category?page=2&brand=<%=brand%>&color=<%=color%>&sortby=<%=sortby%>">2</a></li>
+				    	 <li class="page-item"><a class="page-link" href="/category?page=3&brand=<%=brand%>&color=<%=color%>&sortby=<%=sortby%>">3</a></li>
+				    	<% } else{ %>
+				    	 <li class="page-item"><a class="page-link" href="/category?page=<%=curpage - 1%>&brand=<%=brand%>&color=<%=color%>&sortby=<%=sortby%>"><%=curpage - 1%></a></li>
+					     <li class="page-item"><a class="page-link" href="/category?page=<%=curpage%>&brand=<%=brand%>&color=<%=color%>&sortby=<%=sortby%>"><%=curpage%></a></li>
+				    	 <li class="page-item"><a class="page-link" href="/category?page=<%=curpage + 1%>&brand=<%=brand%>&color=<%=color%>&sortby=<%=sortby%>"><%=curpage + 1%></a></li>
+				    	<% } %>
+				    	<li class="page-item">
+					      <a class="page-link" href="/category?page=<%=curpage + 1%>&brand=<%=brand%>&color=<%=color%>&sortby=<%=sortby%>" aria-label="Next">
+					        <span aria-hidden="true">&raquo;</span>
+					        <span class="sr-only">Next</span>
+					      </a>
+					    </li>
+					  </ul>
+					</nav>
+				<!-- End Best Seller -->
+				
+			</div>
+		</div>
+	</div>
+	<!-- start footer Area -->
+	<%- include('footer'); -%>
+	<!-- End footer Area -->
+
+	<!-- Modal Quick Product View -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="container relative">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<div class="product-quick-view">
+					<div class="row align-items-center">
+						<div class="col-lg-6">
+							<div class="quick-view-carousel">
+								<div class="item" style="background: url(img/organic-food/q1.jpg);">
+
+								</div>
+								<div class="item" style="background: url(img/organic-food/q1.jpg);">
+
+								</div>
+								<div class="item" style="background: url(img/organic-food/q1.jpg);">
+
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="quick-view-content">
+								<div class="top">
+									<h3 class="head">Mill Oil 1000W Heater, White</h3>
+									<div class="price d-flex align-items-center"><span class="lnr lnr-tag"></span> <span class="ml-10">$149.99</span></div>
+									<div class="category">Category: <span>Household</span></div>
+									<div class="available">Availibility: <span>In Stock</span></div>
+								</div>
+								<div class="middle">
+									<p class="content">Mill Oil is an innovative oil filled radiator with the most modern technology. If you are
+										looking for something that can make your interior look awesome, and at the same time give you the pleasant
+										warm feeling during the winter.</p>
+									<a href="#" class="view-full">View full Details <span class="lnr lnr-arrow-right"></span></a>
+								</div>
+								<div class="bottom">
+									<div class="color-picker d-flex align-items-center">Color:
+										<span class="single-pick"></span>
+										<span class="single-pick"></span>
+										<span class="single-pick"></span>
+										<span class="single-pick"></span>
+										<span class="single-pick"></span>
+									</div>
+									<div class="quantity-container d-flex align-items-center mt-15">
+										Quantity:
+										<input type="text" class="quantity-amount ml-15" value="1" />
+										<div class="arrow-btn d-inline-flex flex-column">
+											<button class="increase arrow" type="button" title="Increase Quantity"><span class="lnr lnr-chevron-up"></span></button>
+											<button class="decrease arrow" type="button" title="Decrease Quantity"><span class="lnr lnr-chevron-down"></span></button>
+										</div>
+
+									</div>
+									<div class="d-flex mt-20">
+										<a href="#" class="view-btn color-2"><span>Add to Cart</span></a>
+										<a href="#" class="like-btn"><span class="lnr lnr-layers"></span></a>
+										<a href="#" class="like-btn"><span class="lnr lnr-heart"></span></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    
+	<script src="js/vendor/jquery-2.2.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+	crossorigin="anonymous"></script>
+	<script src="js/vendor/bootstrap.min.js"></script>
+	<script src="js/jquery.ajaxchimp.min.js"></script>
+	<script src="js/jquery.nice-select.min.js"></script>
+	<script src="js/jquery.sticky.js"></script>
+	<script src="js/nouislider.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<!--gmaps Js-->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+	<script src="js/gmaps.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+
+</html>
