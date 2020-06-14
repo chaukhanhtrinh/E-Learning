@@ -1,0 +1,21 @@
+body{
+    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+}
+
+.emp-profile{
+    padding: 3%;
+    margin-top: 10%;
+    margin-bottom: 3%;
+    border-radius: 0.5rem;
+    background: #fff;
+}
+
+.mr-top-10{
+	margin-top: 10px;
+}
+
+.img-respon{
+	display: block;
+	max-width: 500px;
+	height: auto;
+}
