@@ -1,0 +1,178 @@
+<%- include('header'); -%>
+<style type="text/css">
+	#menu li {
+  display: inline-block;
+  width: 120px;
+  height: 40px;
+  line-height: 40px;
+  margin-left: -5px;
+}
+</style>
+
+<div class="panel">
+	<div class="panel-heading">
+		<h3 class="panel-title">Tất cả sản phẩm</h3>
+		<div class="right">
+			<button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
+			<button type="button" class="btn-remove"><i class="lnr lnr-cross"></i></button>
+		</div>
+	</div>
+	<div class="panel-body no-padding">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Mã khóa học</th>
+					<th>Tên khóa học</th>
+					<th>Số lượng</th>
+					<th>Môn học</th>
+					<th>Giáo viên</th>
+					<th>Giá cũ</th>
+					<th>Giá mới</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+			<% for(var i=0; i<dsGiay.length; i++) {%>
+				<tr>
+					<td><a href="#"><%= dsGiay[i].magiay %></a></td>
+					<td><%= dsGiay[i].tengiay %></td>
+					<td><%= dsGiay[i].soluong %></td>
+					<td><%= dsGiay[i].nhanhieu %></td>
+					<td><%= dsGiay[i].mau %></td>
+					<td>$<%= dsGiay[i].giacu %></td>
+					<td>$<%= dsGiay[i].giamoi %></td>
+					<td><a href="/update?id=<%= dsGiay[i].magiay %>">Sửa</a></td>
+					<td><a href="/quan_ly_gian_hang/delete/<%= dsGiay[i].magiay %>" onClick="return confirm('Bạn chắc chắn muốn xóa?')">Xóa</a></td>
+				</tr>
+			<% } %>	
+			</tbody>
+		</table>
+	</div>
+	<div class="panel-footer">
+		<div class="row">
+			<div class="col-md-6"><span class="panel-note"></span></div>
+			<ul class="pagination justify-content-end">
+			<% if(curPage == 1){ %>
+				<li class="page-item"><a class="page-link" href="#">Trước</a></li>
+			    <li class="page-item"><a class="page-link" href="#">1</a></li>
+			    <li class="page-item"><a class="page-link" href="/quan_ly_gian_hang?page=2&brand=<%=brand%>&color=<%=color%>">2</a></li>
+			    <li class="page-item"><a class="page-link" href="/quan_ly_gian_hang?page=3&brand=<%=brand%>&color=<%=color%>">3</a></li>
+			<% } else{ %>  
+				<li class="page-item"><a class="page-link" href="/quan_ly_gian_hang?page=<%= curPage - 1 %>&brand=<%=brand%>&color=<%=color%>">Trước</a></li>
+			    <li class="page-item"><a class="page-link" href="/quan_ly_gian_hang?page=<%= curPage - 1 %>&brand=<%=brand%>&color=<%=color%>"><%= curPage - 1 %></a></li>
+			    <li class="page-item"><a class="page-link" href="#"><%= curPage %></a></li>
+			    <li class="page-item"><a class="page-link" href="/quan_ly_gian_hang?page=<%= curPage + 1 %>&brand=<%=brand%>&color=<%=color%>"><%= curPage + 1 %></a></li>
+			<% } %>
+			    <li class="page-item"><a class="page-link" href="/quan_ly_gian_hang?page=<%= curPage + 1 %>&brand=<%=brand%>&color=<%=color%>">Tiếp theo</a></li>
+			</ul>
+		</div>
+	</div>
+	<button  class="btn btn-primary"><a href="/addProduct">Thêm sản phẩm</a></button>
+</div>
+
+<div class="panel">
+	<div class="panel-heading">
+		<h3 class="panel-title">Lọc sản phẩm</h3>
+		<div class="right">
+			<button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
+			<button type="button" class="btn-remove"><i class="lnr lnr-cross"></i></button>
+		</div>
+	</div>
+	<div class="panel-body no-padding">
+		<form action="/quan_ly_gian_hang" method="GET">
+			<div class="common-filter" id="menu">
+				<div class="head text-primary" style="margin-left: 30px"><h2>Môn học</h2></div>
+				<ul>
+					<% if(brand=="none"){ %>
+					<li class="filter-list"><input class="pixel-radio" type="radio" id="nonebr" name="brand" value="none" checked="true"><label for="nonebr">Tất cả</label></li>
+					<% }else{ %>
+					<li class="filter-list"><input class="pixel-radio" type="radio" id="nonebr" name="brand" value="none"><label for="nonebr">Tất cả</label></li>
+					<% } %>
+
+					<% if(brand=="Math"){ %>
+					<li class="filter-list"><input class="pixel-radio" type="radio" id="nike" name="brand" value="Math" checked="true"><label for="nike">Math</label></li>
+					<% }else{ %>
+					<li class="filter-list"><input class="pixel-radio" type="radio" id="nike" name="brand" value="Math"><label for="nike">Math</label></li>
+					<% } %>
+
+					<% if(brand=="Literature"){ %>
+					<li class="filter-list"><input class="pixel-radio" type="radio" id="adidas" name="brand" value="Literature" checked="true"><label for="adidas">Literature</label></li>
+					<% }else{ %>
+					<li class="filter-list"><input class="pixel-radio" type="radio" id="adidas" name="brand" value="Literature"><label for="adidas">Literature</label></li>
+					<% } %>
+
+					<% if(brand=="Chemistry"){ %>
+					<li class="filter-list"><input class="pixel-radio" type="radio" id="vans" name="brand" value="Chemistry" checked="true"><label for="vans">Chemistry</label></li>
+					<% }else{ %>
+					<li class="filter-list"><input class="pixel-radio" type="radio" id="vans" name="brand" value="Chemistry"><label for="vans">Chemistry</label></li>
+					<% } %>
+
+					<% if(brand=="Physics"){ %>
+					<li class="filter-list"><input class="pixel-radio" type="radio" id="bitis" name="brand" value="Physics" checked="true"><label for="bitis">Physics</label></li>
+					<% }else{ %>
+					<li class="filter-list"><input class="pixel-radio" type="radio" id="bitis" name="brand" value="Physics"><label for="bitis">Physics</label></li>
+					<% } %>
+
+					<% if(brand=="English"){ %>
+					<li class="filter-list"><input class="pixel-radio" type="radio" id="sneaker" name="brand" value="English" checked="true"><label for="sneaker">English</label></li>
+					<% }else{ %>
+					<li class="filter-list"><input class="pixel-radio" type="radio" id="sneaker" name="brand" value="English"><label for="sneaker">English</label></li>
+					<% } %>
+				</ul>
+			</div>
+			<div class="common-filter" id="menu">
+				<div class="head text-primary" style="margin-left: 30px"><h2>Giáo viên</h2></div>
+				<ul>
+					<% if(color=="none"){ %>
+					<li class="filter-list"><input class="pixel-radio" type="radio" id="nonecl" name="color" value="none" checked="true"><label for="nonecl">Tất cả</label></li>
+					<% }else{ %>
+					<li class="filter-list"><input class="pixel-radio" type="radio" id="nonecl" name="color" value="none"><label for="nonecl">Tất cả</label></li>
+					<% } %>
+
+					<% if(color=="Bui Thi Hanh"){ %>
+					<li class="filter-list"><input class="pixel-radio" type="radio" id="black" name="color" value="Bui Thi Hanh" checked="true"><label for="black">Bui Thi Hanh</label></li>
+					<% }else{ %>
+					<li class="filter-list"><input class="pixel-radio" type="radio" id="black" name="color" value="Bui Thi Hanh"><label for="black">Bui Thi Hanh</label></li>
+					<% } %>
+
+					<% if(color=="Do Ngoc Ha"){ %>
+					<li class="filter-list"><input class="pixel-radio" type="radio" id="brown" name="color" value="Do Ngoc Ha" checked="true"><label for="brown">Do Ngoc Ha</label></li>
+					<% }else{ %>
+					<li class="filter-list"><input class="pixel-radio" type="radio" id="brown" name="color" value="Do Ngoc Ha"><label for="brown">Do Ngoc Ha</label></li>
+					<% } %>
+
+					<% if(color=="Tuan Quynh"){ %>
+					<li class="filter-list"><input class="pixel-radio" type="radio" id="red" name="color" value="Tuan Quynh" checked="true"><label for="red">Tuan Quynh</label></li>
+					<% }else{ %>
+					<li class="filter-list"><input class="pixel-radio" type="radio" id="red" name="color" value="Tuan Quynh"><label for="red">Tuan Quynh</label></li>
+					<% } %>
+
+					<% if(color=="Nguyen Van Hung"){ %>
+					<li class="filter-list"><input class="pixel-radio" type="radio" id="grey" name="color" value="Nguyen Van Hung" checked="true"><label for="grey">Nguyen Van Hung</label></li>
+					<% }else{ %>
+					<li class="filter-list"><input class="pixel-radio" type="radio" id="grey" name="color" value="Nguyen Van Hung"><label for="grey">Nguyen Van Hung</label></li>
+					<% } %>
+
+					<% if(color=="Pham Van Nam"){ %>
+					<li class="filter-list"><input class="pixel-radio" type="radio" id="white" name="color" value="Pham Van Nam" checked="true"><label for="white">Pham Van Nam</label></li>
+					<% }else{ %>
+					<li class="filter-list"><input class="pixel-radio" type="radio" id="white" name="color" value="Pham Van Nam"><label for="white">Pham Van Nam</label></li>
+					<% } %>
+				</ul>
+			</div>
+			<p></p>
+			<div style="text-align:center"><button type="submit" class="btn btn-outline-dark">Lọc</button></div>
+		</form>
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+
+<%- include('footer'); -%>
+
+</body>
+
+</html>

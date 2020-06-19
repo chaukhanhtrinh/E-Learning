@@ -1,0 +1,58 @@
+<%- include('header'); -%>
+<div class="container">
+  <h2>Xin điền thông tin cho sản phẩm</h2>
+  <form action="/addProduct" method="post">
+    <% if(message.length > 0) { %>
+      <div class="alert alert-danger"><%= message %></div>
+    <% } %>
+    <div class="form-group">
+      <label>Mã khóa học:</label>
+      <input type="number" class="form-control" placeholder="Nhập mã khóa học" name="magiay" required>
+    </div>
+    <div class="form-group">
+      <label>Tên khóa học:</label>
+      <input type="text" class="form-control" placeholder="Nhập Tên Khóa Học" name="tengiay" required>
+    </div>
+    <div class="form-group">
+      <label >Số lượng:</label>
+      <input type="text" class="form-control" placeholder="Nhập Số lượng" name="soluong" required>
+    </div>
+    <div class="form-group">
+      <label >Môn học:</label>
+      <input type="text" class="form-control" placeholder="Nhập Môn" name="nhanhieu" required>
+    </div>
+    <div class="form-group">
+      <label >Giáo viên:</label>
+      <input type="text" class="form-control" placeholder="Nhập Giáo Viên" name="mau" required>
+    </div>
+    <div class="form-group">
+      <label >Giá cũ:</label>
+      <input type="number" class="form-control" placeholder="Nhập Giá cũ" name="giacu" required>
+    </div>
+    <div class="form-group">
+      <label >Giá mới:</label>
+      <input type="number" class="form-control" placeholder="Nhập Giá mới" name="giamoi" required>
+    </div>
+    <div class="form-group">
+      <label>Ảnh:</label>
+      <div class="profile-img">
+      <% if(file == '') { %>
+          <input type="text" class="form-control" placeholder="Tên ảnh" name="anh" readonly erequired>
+          <img src="upload/no-product.png" alt=""/>
+      <% } else { %>
+          <input type="text" class="form-control" placeholder="Tên ảnh" name="anh" value="<%= file %>" readonly erequired>
+          <img src= <%= file %> style="max-height: 200px; margin-top: 10px" alt=""/>
+      <% } %>
+          <button class="file btn btn-lg btn-primary" style="margin-left: 20px" name="file">
+              <a href="/changeproductimage">Thay đổi ảnh sản phẩm</a>
+          </button>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">THÊM</button>
+  </form>
+</div>
+<%- include('footer'); -%>
+
+</body>
+
+</html>

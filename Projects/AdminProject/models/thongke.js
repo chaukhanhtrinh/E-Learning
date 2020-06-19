@@ -6,16 +6,16 @@ exports.loadAll = () => {
 }
 
 exports.add = giaoDich => {	
-    const sql = `insert into giaodich(magiay, mahoadon, soluong) VALUES(${giaoDich.magiay}, ${giaoDich.mahoadon}, ${giaoDich.soluong});`;
+    const sql = `insert into giaodich(makhoahoc, mahoadon, soluong) VALUES(${giaoDich.magiay}, ${giaoDich.mahoadon}, ${giaoDich.soluong});`;
     return db.save(sql);
 }
 
 exports.top10 = () => {
-	const sql = `SELECT giaodich.magiay, shoe.magiay, shoe.tengiay, shoe.giamoi, count(DISTINCT giaodich.soluong) as doanhso FROM giaodich JOIN shoe ON giaodich.magiay = shoe.magiay GROUP BY giaodich.magiay ORDER BY doanhso DESC LIMIT 10`
+	const sql = `SELECT giaodich.makhoahoc, khoahoc.makhoahoc, khoahoc.tenkhoahoc, khoahoc.giamoi, count(DISTINCT giaodich.soluong) as doanhso FROM giaodich JOIN khoahoc ON giaodich.makhoahoc = khoahoc.makhoahoc GROUP BY giaodich.makhoahoc ORDER BY doanhso DESC LIMIT 10`
 	return db.load(sql)
 }
 
 exports.top10Brand = () => {
-	const sql = `SELECT shoe.nhanhieu, count(DISTINCT giaodich.soluong) as doanhso FROM giaodich JOIN shoe ON giaodich.magiay = shoe.magiay GROUP BY shoe.nhanhieu ORDER BY doanhso DESC LIMIT 10`
+	const sql = `SELECT khoahoc.mon, count(DISTINCT giaodich.soluong) as doanhso FROM giaodich JOIN khoahoc ON giaodich.makhoahoc = khoahoc.makhoahoc GROUP BY khoahoc.mon ORDER BY doanhso DESC LIMIT 10`
 	return db.load(sql)
 }

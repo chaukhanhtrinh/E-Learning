@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en" class="fullscreen-bg">
+
+<head>
+	<title>ĐĂNG KÝ | HOMESPACE </title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<!-- VENDOR CSS -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="vendor/linearicons/style.css">
+	<!-- MAIN CSS -->
+	<link rel="stylesheet" href="css/main.css">
+	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+	<link rel="stylesheet" href="css/demo.css">
+	<!-- GOOGLE FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+	<!-- ICONS -->
+	<link rel="apple-touch-icon" sizes="76x76" href="images/apple-icon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="images/favicon.png">
+</head>
+
+<body>
+	<!-- WRAPPER -->
+	<div id="wrapper">
+		<div class="vertical-align-wrap">
+			<div class="vertical-align-middle">
+				<div class="auth-box ">
+					<div class="left">
+						<div class="content">
+							<div class="header">
+								<div class="logo text-center"><img src="images/logo-dark.png" alt="Klorofil Logo"></div>
+								<p class="lead">Đăng ký tài khoản admin</p>
+							</div>
+							<% if(message.length > 0) { %>
+								<div class="alert alert-danger"><%= message %></div>
+							<% } %>
+							<form class="form-auth-small" action="/signup" method="post">
+								<div class="form-group">
+									<label for="signin-email" class="control-label sr-only">Email</label>
+									<input type="email" class="form-control" id="signin-email" name="email" placeholder="Email">
+								</div>
+								<div class="form-group">
+									<label for="signin-password" class="control-label sr-only">Mật khẩu</label>
+									<input type="password" class="form-control" id="signin-password" name="password" placeholder="Mật khẩu">
+								</div>
+								<div class="form-group">
+									<label for="signin-name" class="control-label sr-only">Tên hiển thị</label>
+									<input type="text" class="form-control" id="signin-name" name="name" placeholder="Tên hiển thị">
+								</div>
+								<div class="form-group">
+									<label for="signin-tel" class="control-label sr-only">Số điện thoại</label>
+									<input type="number" class="form-control" id="signin-tel" name="tel" placeholder="Số điện thoại">
+								</div>
+								<div class="form-group">
+									<label class="control-label sr-only">Ảnh đại diện</label>
+									<input type="file" class="form-control" id="signin-img" name="img">
+								</div>
+								<button type="submit" class="btn btn-primary btn-lg btn-block">ĐĂNG KÝ</button>
+								<div class="bottom">
+									<p>Đã có tài khoản <a href="/signup">Đăng nhập</a></p>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="right">
+						<div class="overlay"></div>
+						<div class="content text">
+							<h1 class="heading">Trang đăng ký</h1>
+							<p>cho Admin</p>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END WRAPPER -->
+</body>
+
+</html>

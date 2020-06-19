@@ -1,0 +1,40 @@
+<%- include('header'); -%>
+<div class="container">
+  <h2>Xin điền thông tin cho sản phẩm <%= giay.magiay %></h2>
+  <form action="/update?id=<%= giay.magiay %>" method="post">
+    <div class="form-group">
+      <label>Ảnh:</label>
+      <input type="text" class="form-control" value="<%= giay.anh %>" name="anh">
+    </div>
+    <div class="form-group">
+      <label>Tên khóa học:</label>
+      <input type="text" class="form-control" value="<%= giay.tengiay %>" name="tengiay">
+    </div>
+    <div class="form-group">
+      <label >Số lượng:</label>
+      <input type="text" class="form-control" value="<%= giay.soluong %>" name="soluong">
+    </div>
+    <div class="form-group">
+      <label >Môn học:</label>
+      <input type="text" class="form-control" value="<%= giay.nhanhieu %>" name="nhanhieu">
+    </div>
+    <div class="form-group">
+      <label >Giáo viên:</label>
+      <input type="text" class="form-control" value="<%= giay.mau %>" name="mau">
+    </div>
+    <div class="form-group">
+      <label >Giá cũ:</label>
+      <input type="number" class="form-control" value="<%= giay.giacu %>" name="giacu">
+    </div>
+    <div class="form-group">
+      <label >Giá mới:</label>
+      <input type="number" class="form-control" value="<%= giay.giamoi %>" name="giamoi">
+    </div>
+    <button type="submit" class="btn btn-primary">Cập nhật</button>
+  </form>
+</div>
+<%- include('footer'); -%>
+
+</body>
+
+</html>

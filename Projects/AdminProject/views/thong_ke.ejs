@@ -1,0 +1,219 @@
+<%- include('header'); -%>
+<h3 class="page-title">THỐNG KÊ</h3>
+<div class="row">
+	<div class="col-md-6">
+		<!-- BASIC TABLE -->
+		<div class="panel">
+			<div class="panel-heading">
+				<h3 class="panel-title">Thống kê số lượng bán top 10 của sản phẩm</h3>
+			</div>
+			<div class="panel-body">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Mã khóa học</th>
+							<th>Tên khóa học</th>
+							<th>Giá</th>
+							<th>Doanh số</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% for(let i=0; i<products.length; i++) {%>
+						<tr>
+							<td><%= i+1 %></td>
+							<td><%= products[i].magiay %></td>
+							<td><%= products[i].tengiay %></td>
+							<td>$<%= products[i].giamoi %></td>
+							<td><%= products[i].doanhso %></td>
+						</tr>
+						<% } %>	
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- END BASIC TABLE -->
+	</div>
+	<div class="col-md-6">
+		<!-- TABLE NO PADDING -->
+		<div class="panel">
+			<div class="panel-heading">
+				<h3 class="panel-title">Thống kê số lượng bán top 10 của gian hàng</h3>
+			</div>
+			<div class="panel-body">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Môn học</th>
+							<th>Doanh số</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% for(let i=0; i<brands.length; i++) {%>
+						<tr>
+							<td><%= i+1 %></td>
+							<td><%= brands[i].nhanhieu %></td>
+							<td><%= brands[i].doanhso %></td>
+						</tr>
+						<% } %>	
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- END TABLE NO PADDING -->
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-4">
+		<!-- BASIC TABLE -->
+		<div class="panel">
+			<div class="panel-heading">
+				<h3 class="panel-title">Thống kê danh thu theo Ngày</h3>
+			</div>
+			<div class="panel-body">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Ngày</th>
+							<th>Doanh thu</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% for(let i=0; i<perday.length; i++) {%>
+						<tr>
+							<td><%= perday[i].ngay %></td>
+							<td>$<%= perday[i].tien %></td>
+						</tr>
+						<% } %>	
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- END BASIC TABLE -->
+	</div>
+		<div class="col-md-4">
+		<!-- BASIC TABLE -->
+		<div class="panel">
+			<div class="panel-heading">
+				<h3 class="panel-title">Thống kê danh thu theo Tháng</h3>
+			</div>
+			<div class="panel-body">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Tháng</th>
+							<th>Năm</th>
+							<th>Doanh thu</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% for(let i=0; i<permonth.length; i++) {%>
+						<tr>
+							<td><%= permonth[i].thang %></td>
+							<td><%= permonth[i].nam %></td>
+							<td>$<%= permonth[i].tien %></td>
+						</tr>
+						<% } %>	
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- END BASIC TABLE -->
+	</div>
+	<div class="col-md-4">
+		<!-- BASIC TABLE -->
+		<div class="panel">
+			<div class="panel-heading">
+				<h3 class="panel-title">Thống kê danh thu theo Năm</h3>
+			</div>
+			<div class="panel-body">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Năm</th>
+							<th>Doanh thu</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% for(let i=0; i<peryear.length; i++) {%>
+						<tr>
+							<td><%= peryear[i].nam %></td>
+							<td>$<%= peryear[i].tien %></td>
+						</tr>
+						<% } %>	
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- END BASIC TABLE -->
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-6">
+		<!-- BASIC TABLE -->
+		<div class="panel">
+			<div class="panel-heading">
+				<h3 class="panel-title">Thống kê danh thu theo Tuần</h3>
+			</div>
+			<div class="panel-body">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Tuần</th>
+							<th>Năm</th>
+							<th>Doanh thu</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% for(let i=0; i<perweek.length; i++) {%>
+						<tr>
+							<td><%= perweek[i].tuan %></td>
+							<td><%= perweek[i].nam %></td>
+							<td>$<%= perweek[i].tien %></td>
+						</tr>
+						<% } %>	
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- END BASIC TABLE -->
+	</div>
+	<div class="col-md-6">
+		<!-- BASIC TABLE -->
+		<div class="panel">
+			<div class="panel-heading">
+				<h3 class="panel-title">Thống kê danh thu theo Quý</h3>
+			</div>
+			<div class="panel-body">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Quý</th>
+							<th>Năm</th>
+							<th>Doanh thu</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% for(let i=0; i<perquarter.length; i++) {%>
+						<tr>
+							<td><%= perquarter[i].quy %></td>
+							<td><%= perquarter[i].nam %></td>
+							<td>$<%= perquarter[i].tien %></td>
+						</tr>
+						<% } %>	
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- END BASIC TABLE -->
+	</div>
+</div>
+
+<%- include('footer'); -%>
+
+</body>
+
+</html>

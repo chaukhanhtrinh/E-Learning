@@ -12,7 +12,7 @@ module.exports.getDelProduct = function(req, res){
 
 module.exports.getCategory = async function(req,res, next)
 {
-	var sql = "SELECT * FROM shoe";
+	var sql = "SELECT * FROM khoahoc";
 	var brand = req.query.brand || "none";
 	var color = req.query.color || "none";
 
@@ -89,10 +89,10 @@ module.exports.postUpdateProduct = function(req, res, next){
 	const giay = {
 		magiay: req.query.id,
 		anh: req.param('anh'),
-		tengiay: req.param('tengiay'),
+		tengiay: req.param('tenkhoahoc'),
 		soluong: req.param('soluong'),
-		nhanhieu: req.param('nhanhieu'),
-		mau: req.param('mau'),
+		nhanhieu: req.param('mon'),
+		mau: req.param('giaovien'),
 		giacu: req.param('giacu'),
 		giamoi: req.param('giamoi')
 	};
@@ -107,19 +107,19 @@ module.exports.postUpdateProduct = function(req, res, next){
 
 module.exports.postAddProduct = function(req, res, next){
 	const giay = {
-		magiay: req.param('magiay'),
+		magiay: req.param('makhoahoc'),
 		anh: req.param('anh'),
-		tengiay: req.param('tengiay'),
+		tengiay: req.param('tenkhoahoc'),
 		soluong: req.param('soluong'),
-		nhanhieu: req.param('nhanhieu'),
-		mau: req.param('mau'),
+		nhanhieu: req.param('mon'),
+		mau: req.param('giaovien'),
 		giacu: req.param('giacu'),
 		giamoi: req.param('giamoi')
 	};
 	productRepo.singleId(giay.magiay).then(result => {
 		if(result.length)
 		{
-			req.flash('addProductMessage', 'Mã giày đã tồn tại');
+			req.flash('addProductMessage', 'Mã khóa học đã tồn tại');
 			res.redirect('/addProduct');
 		}
 		else{

@@ -1,0 +1,28 @@
+<%- include('header'); -%>
+<div class="container">
+  <h2>Chi tiết thông tin người dùng</h2>
+  <form action="/chinh_sua_profile" method="post">
+    <div><img style="width:200px;height:200px;" src="/<%=user.avatar%>" alt=""></div>
+    <div class="form-group">
+      <label for="name">ID người dùng:</label>
+      <input type="text" class="form-control" id="name" value="<%= user.id %>" name="name">
+    </div>
+     <div class="form-group">
+      <label for="name">Tên hiển thị:</label>
+      <input type="text" class="form-control" id="name" value="<%= user.name %>" name="name">
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" value="<%= user.email %>" name="email">
+    </div>
+    <div class="form-group">
+      <label for="email">Số điện thoại:</label>
+      <input type="number" class="form-control" id="tel" value="<%= user.tel %>" name="tel">
+    </div>
+  </form>
+</div>
+<%- include('footer'); -%>
+
+</body>
+
+</html>

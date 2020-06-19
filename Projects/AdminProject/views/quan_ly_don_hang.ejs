@@ -1,0 +1,86 @@
+<%- include('header'); -%>
+<div class="panel">
+	<div class="panel-heading">
+		<h3 class="panel-title">Quản lý đơn đặt hàng</h3>
+		<div class="right">
+			<button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
+			<button type="button" class="btn-remove"><i class="lnr lnr-cross"></i></button>
+		</div>
+	</div>
+	<div class="panel-body no-padding">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Mã hóa đơn</th>
+					<th>Mã người đặt hàng</th>
+					<th>Tên người nhận</th>
+					<th>Giá</th>
+					<th>Ngày &amp; Giờ</th>
+					<th>Tình trạng</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% for(let i=0; i<bills.length; i++) {%>
+				<tr>
+					<td><a href="#"><%= bills[i].mahoadon %></a></td>
+					<td><%= bills[i].id %></td>
+					<td><%= bills[i].name %></td>
+					<td>$<%= bills[i].thanhtien %></td>
+					<td><%= bills[i].ngaythanhtoan %></td>
+					<% if(bills[i].tinhtranggiao == 0){ %>
+						<td><span class="label label-warning">Đang giao</span></td>
+						<td><div class="btn-group">
+							<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Hành động
+							</button>
+							<div class="dropdown-menu">
+								<div><a class="dropdown-item btn btn-success" href="/quan_ly_don_hang/deliveried/<%= bills[i].mahoadon %>">Đã giao</a></div>
+								<div><a class="dropdown-item btn btn-danger" href="/quan_ly_don_hang/notdely/<%= bills[i].mahoadon %>">Chưa giao</a>
+							</div>
+						</div>
+						</td>
+					<% } %>
+					<% if(bills[i].tinhtranggiao == 1){ %>
+						<td><span class="label label-success">Đã giao</span></td>						
+						<td><div class="btn-group">
+							<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Hành động
+							</button>
+							<div class="dropdown-menu">
+								<div><a class="dropdown-item btn btn-warning" href="/quan_ly_don_hang/delivering/<%= bills[i].mahoadon %>">Đang giao</a></div>
+								<div><a class="dropdown-item btn btn-danger" href="/quan_ly_don_hang/notdely/<%= bills[i].mahoadon %>">Chưa giao</a>
+							</div>
+						</div>
+						</td>
+					<% } %>
+					<% if(bills[i].tinhtranggiao == 2){ %>
+						<td><span class="label label-danger">Chưa giao</span></td>
+						<td><div class="btn-group">
+							<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Hành động
+							</button>
+							<div class="dropdown-menu">
+								<div><a class="dropdown-item btn btn-success" href="/quan_ly_don_hang/deliveried/<%= bills[i].mahoadon %>">Đã giao</a></div>
+								<div><a class="dropdown-item btn btn-warning" href="/quan_ly_don_hang/delivering/<%= bills[i].mahoadon %>">Đang giao</a>
+							</div>
+						</div>
+						</td>
+					<% } %>
+				</tr>
+				<% } %>
+			</tbody>
+		</table>
+	</div>
+	<div class="panel-footer">
+		<div class="row">
+			<div class="col-md-6"><span class="panel-note"><i class="fa fa-clock-o"></i> 24h trước</span></div>
+			<div class="col-md-6 text-right"><a href="#" class="btn btn-primary">Xem tất cả đơn hàng</a></div>
+		</div>
+	</div>
+</div>
+<%- include('footer'); -%>
+
+</body>
+
+</html>

@@ -33,7 +33,7 @@ function checkFileType(file, cb){
 }
 
 exports.loadAll = () => {
-	const sql=`select * from shoe`;
+	const sql=`select * from khoahoc`;
 	return db.load(sql);
 }
 
@@ -44,22 +44,22 @@ exports.add = giay => {
 
 
 exports.update = giay => {
-	const sql=`update shoe set anh='${giay.anh}', tengiay='${giay.tengiay}', soluong='${giay.soluong}', nhanhieu='${giay.nhanhieu}', mau='${giay.mau}', giacu=${giay.giacu}, giamoi=${giay.giamoi} where magiay=${giay.magiay};`;
+	const sql=`update khoahoc set anh='${giay.anh}', tenkhoahoc='${giay.tengiay}', soluong='${giay.soluong}', mon='${giay.nhanhieu}', giaovien='${giay.mau}', giacu=${giay.giacu}, giamoi=${giay.giamoi} where makhoahoc=${giay.magiay};`;
 	return db.save(sql);
 }
 
 exports.delete = (magiay) => {
-	const sql=`delete from shoe where magiay=${magiay};`;
+	const sql=`delete from khoahoc where makhoahoc=${magiay};`;
 	return db.save(sql);
 }
 
 exports.singleId = (magiay) => {
-    var sql = `select * from shoe where magiay=${magiay};`;
+    var sql = `select * from khoahoc where makhoahoc=${magiay};`;
     return db.load(sql);
 }
 
 exports.filter = (brand, color) => {
-	var sql = "SELECT * FROM shoe";
+	var sql = "SELECT * FROM khoahoc";
 	var check = 0;
 
 	if(brand != "none") 
