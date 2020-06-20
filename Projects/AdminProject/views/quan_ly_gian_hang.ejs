@@ -34,11 +34,11 @@
 			<tbody>
 			<% for(var i=0; i<dsGiay.length; i++) {%>
 				<tr>
-					<td><a href="#"><%= dsGiay[i].magiay %></a></td>
-					<td><%= dsGiay[i].tengiay %></td>
+					<td><a href="#"><%= dsGiay[i].makhoahoc %></a></td>
+					<td><%= dsGiay[i].tenkhoahoc %></td>
 					<td><%= dsGiay[i].soluong %></td>
-					<td><%= dsGiay[i].nhanhieu %></td>
-					<td><%= dsGiay[i].mau %></td>
+					<td><%= dsGiay[i].mon %></td>
+					<td><%= dsGiay[i].giaovien %></td>
 					<td>$<%= dsGiay[i].giacu %></td>
 					<td>$<%= dsGiay[i].giamoi %></td>
 					<td><a href="/update?id=<%= dsGiay[i].magiay %>">Sửa</a></td>
