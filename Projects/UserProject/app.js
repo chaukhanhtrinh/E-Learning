@@ -6,18 +6,19 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
 
+
 var passport = require('passport');
-var flash = require('connect-flash');
+var flash = require('express-flash');
 var app = express();
 
 require('./data/passport')(passport);
 app.use(logger('dev'));
+app.use (flash());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
 app.use(session({
   secret: 'justasecret',
   resave: true,

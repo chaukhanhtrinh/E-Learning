@@ -3,6 +3,11 @@ var categoryControl = require('../controllers/categoryController');
 var searchControl = require('../controllers/searchController');
 var profileControl = require('../controllers/profileController');
 var shoppingController = require('../controllers/shoppingController');
+var stripe = require("stripe")("sk_test_MRlOBa2xxVhOOfbez5ieOODU00mFwFFh18")
+if (process.env.NODE_ENV !== 'production') {
+	require('dotenv').config()
+}
+var payment = require('../controllers/payment')
 
 module.exports = function(router, passport){
 	router.get("/", function(req, res, next){ categoryControl.getRoot(req, res, next) });
@@ -48,16 +53,16 @@ module.exports = function(router, passport){
 
 	router.get('/logout', function(req, res, next){ authControl.getLogout(req, res) });
 
-	router.get('/clear-cart', function(req, res, next){ shoppingController.getClear(req, res, next) })
+	router.get('/clear-cart', function(req, res, next){ shoppingController.getClear(req, res, next)})
 
 	router.get('/pay', function(req, res, next){ authControl.getPay(req, res, next)	})
 
 	//POST
-	router.post('/checkout', function(req, res, next){ shoppingController.postCheckout(req, res, next)	})
+	router.post('/checkout',function(req, res, next){ shoppingController.postCheckout(req, res, next)})
 
 	router.post('/login', passport.authenticate('local-login', 
 		{
-			successRedirect: '/checkout',
+			successRedirect: '/',
 			failureRedirect: '/login',
 			failureFlash: true
 		}), function(req, res) { authControl.postLogin(req, res) });
@@ -83,5 +88,5 @@ module.exports = function(router, passport){
 	router.get("/verify", function(req, res, next){ authControl.postVerify(req, res, next) });
 
 	router.post('/resetpassword', function(req, res, next){ authControl.postResetPassword(req, res, next) });
-
+	//router.post('/charge',function (req, res){payment.charge(req, res)});
 };

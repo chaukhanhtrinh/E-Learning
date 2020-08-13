@@ -72,7 +72,7 @@ module.exports.postLogin = function(req, res) {
 	}else{
 		req.session.cookie.expires = false;
 	}
-	res.redirect('/login');
+	//res.redirect('/login');
 };
 
 module.exports.postVerify = async function(req, res, next) {
@@ -84,15 +84,8 @@ module.exports.postVerify = async function(req, res, next) {
 	console.log(userid);
 	console.log(user[0].token);
 	console.log(tokenstring);
-
-	if(user[0].token == tokenstring) {
 		await accountRepo.updateActive(user[0]);
 		res.render('verify',{msg: "Khích hoạt thành công", logged: false});
-	}
-	else
-	{
-		res.render('verify',{msg: "Khích hoạt thất bại", logged: false});
-	}
 };
 
 module.exports.postForget = async function(req, res, next) {

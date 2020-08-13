@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="css/nouislider.min.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/validation.css">
 </head>
 
 <body>
@@ -65,69 +66,93 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <h3>Chi tiết đơn hàng</h3>
-                        <form class="row contact_form" action="/checkout" method="post" novalidate="novalidate">
-                            <div class="col-md-6 form-group p_star">
-                                <input type="text" class="form-control" id="last" name="name" placeholder="Tên người nhận">
-                            </div>
-                            <div class="col-md-6 form-group p_star">
-                                <input type="text" class="form-control" id="number" name="phonenumber" placeholder="Số điện thoại người nhận">
-                            </div>
-                            <div class="col-md-6 form-group p_star">
-                                <input type="text" class="form-control" id="email" name="email" placeholder="Địa chỉ email người nhận">
-                            </div>
-                            <div class="col-md-12 form-group p_star">
-                                <select class="country_select">
-                                    <option value="1">Việt Nam</option>
-                                    <option value="2">Lào</option>
-                                    <option value="4">Trung Quốc</option>
-                                </select>
-                            </div>
-                            <div class="col-md-12 form-group p_star">
-                                <input type="text" class="form-control" id="add1" name="address" placeholder="Địa chỉ người nhận">
-                            </div>
-                            <div class="col-md-12 form-group p_star">
-                                <input type="text" class="form-control" id="city" name="city" placeholder="Thành phố/Nông thôn">
-                            </div>
-                            <button type="submit" class="btn primary-btn" onClick="return confirm('Bạn chắc chắn muốn thanh toán?')">THANH TOÁN</button>
-                        </form>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="order_box">
-                            <h2>Đơn hàng của bạn</h2>
-                            <ul class="list">
-                                <li><a href="#">Sản phẩm <span>Giá</span></a></li>
-                                <% products.forEach(function(product){%>
-                                <li><a href="#"><%=product.item.tenkhoahoc%> <span class="middle">x <%=product.qty%></span> <span class="last">$<%=product.item.giamoi * product.qty%></span></a></li>
-                                <% }) %>
-                            </ul>
-                            <ul class="list list_2">
-                                <li><a href="#">Tổng  <span>$<%= totalPrice %></span></a></li>
-                                <li><a href="#">Phí ship <span>Flat rate: $0.00</span></a></li>
-                                <li><a href="#">Tổng tiền <span>$<%= totalPrice %></span></a></li>
-                            </ul>
-                            <div class="payment_item">
-                                <div class="radion_btn">
-                                    <input type="radio" id="f-option5" name="selector">
-                                    <label for="f-option5">Kiểm tra hoá đơn</label>
-                                    <div class="check"></div>
-                                </div>
-                            </div>
-                            <div class="payment_item active">
-                                <div class="radion_btn">
-                                    <input type="radio" id="f-option6" name="selector">
-                                    <label for="f-option6">Paypal </label>
-                                    <img src="img/product/card.jpg" alt="">
-                                    <div class="check"></div>
-                                </div>
-                            </div>
-                            <div class="creat_account">
-                                <input type="checkbox" id="f-option4" name="selector">
-                                <label for="f-option4">Tôi đã đọc và chấp nhận </label>
-                                <a href="#">điều khoản &amp; thoả thuận*</a>
-                            </div>
-                            
-                        </div>
-                    </div>
+                        
+                         <form class="row contact_form" action="/checkout" method="post">
+                                            <div class="col-md-6 form-group p_star">
+                                                    <input type="text" class="form-control" id="last" name="name" placeholder="Tên người nhận" required>
+                                            </div>
+                                            <div class="col-md-6 form-group p_star">
+                                                <input type="tel" class="form-control" id="number" name="phonenumber" placeholder="Số điện thoại người nhận" pattern="[0-9]{10}"  title="Ten digits code"  required>
+                                            </div>
+                                            <div class="col-md-6 form-group p_star">
+                                                <input type="email" class="form-control" id="email" name="email" placeholder="Địa chỉ email người nhận" required>
+                                            </div>
+                                            <div class="col-md-12 form-group p_star">
+                                                <select class="country_select">
+                                                    <option value="1">Việt Nam</option>
+                                                    <option value="2">Lào</option>
+                                                    <option value="4">Trung Quốc</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-12 form-group p_star">
+                                                <input type="text" class="form-control" id="add1" name="address" placeholder="Địa chỉ người nhận" required>
+                                            </div>
+                                            <div class="col-md-12 form-group p_star">
+                                                <input type="text" class="form-control" id="city" name="city" placeholder="Thành phố/Nông thôn" required>
+                                            </div>
+                                        <script type="text/javascript" src="/javascripts/jquery-3.1.1.min.js"></script>
+                                         <script 
+                                         src ="https://checkout.stripe.com/checkout.js"
+                                         class="stripe-button"
+                                         data-key= "pk_test_IIPTRyhNyoT9TRdYeDC88STL00rVvnDN96"
+                                         data-amount= "<%= totalPrice %>"
+                                         data-locale="auto"
+                                         data-currency="usd"
+                                         >
+                                         </script>
+                                         <input type="hidden" name="chargeAmount" value="<%= totalPrice %>">
+                                       
+
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="order_box">
+                                                <h2>Đơn hàng của bạn</h2>
+                                                <ul class="list">
+                                                    <li><a href="#">Sản phẩm <span>Giá</span></a></li>
+                                                    <% products.forEach(function(product){%>
+                                                    <li><a href="#"><%=product.item.tenkhoahoc%> <span class="middle">x <%=product.qty%></span><span class="last">$<%=product.item.giamoi%></span></a></li>
+                                                    <% }) %>
+                                                </ul>
+                                                <ul class="list list_2">
+                                                    <li><a href="#">Tổng  <span>$<%= totalPrice %></span></a></li>
+                                                    <li><a href="#">Phí ship <span>Flat rate: $0.00</span></a></li>
+                                                    <li><a href="#">Tổng tiền <span>$<%= totalPrice %></span></a></li>
+                                                </ul>
+                                                <div class="payment_item">
+                                                    <div class="radion_btn">
+                                                        <input type="radio" id="f-option5" name="selector">
+                                                        <label for="f-option5">Kiểm tra hoá đơn</label>
+                                                        <div class="check"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="payment_item active">
+                                                    <div class="radion_btn">
+                                                        <input type="radio" id="f-option6" name="selector" required> 
+                                                        <label for="f-option6">Stripe </label>
+                                                        <img src="img/product/card.jpg" alt="">
+                                                        <div class="check"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="creat_account">
+                                                    <input type="checkbox" id="f-option4" name="selector" required>
+                                                    <label for="f-option4">Tôi đã đọc và chấp nhận </label>
+                                                    <a href="#">điều khoản &amp; thoả thuận*</a>
+                                                    <script>
+                                                    function myFunction() {
+                                                    var x = document.getElementById("f-option4").required;
+                                                    document.getElementById("demo").innerHTML = x;
+                                                    }
+                                                    </script>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <script>
+                                                document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
+                                        </script>
+                                        <button type="submit" class="btn primary-btn">THANH TOÁN</button>
+                                </form> 
                 </div>
             </div>
         </div>
@@ -183,3 +208,5 @@
 </body>
 
 </html>
+
+

@@ -3,16 +3,11 @@ var mysql = require('mysql');
 module.exports.load = sql => {
     return new Promise((resolve, reject) => {
         var cn = mysql.createConnection({
-            /*host: 'localhost',
-            port: '3306',
-            user: 'root',
-            password: 'vuong310',
-            database: 'webcourse'*/
             host: "db4free.net",
 		    port: "3306",
-		    user: "baohan1712413",
-		    password: "buingocbaohan0705",
-		    database: "webcoursetmdt"
+		    user: "nhomecb02",
+		    password: "nhom123456789",
+            database: "webcourseb02"
 		});
 
         cn.connect();
@@ -32,16 +27,11 @@ module.exports.load = sql => {
 module.exports.save = sql => {
     return new Promise((resolve, reject) => {
         var cn = mysql.createConnection({
-            /*host: 'localhost',
-            port: '3306',
-            user: 'root',
-            password: 'vuong310',
-            database: 'webcourse'*/
             host: "db4free.net",
 		    port: "3306",
-		    user: "baohan1712413",
-		    password: "buingocbaohan0705",
-		    database: "webcoursetmdt"
+		    user: "nhomecb02",
+		    password: "nhom123456789",
+            database: "webcourseb02"
 		});
 
         cn.connect();
@@ -59,15 +49,10 @@ module.exports.save = sql => {
 }
 
 var cn = mysql.createConnection({
-            /*host: "localhost",
-            port: "3306",
-            user: "root",
-            password: "vuong310",
-            database: "webcourse"*/
-		    host: "db4free.net",
-		    port: "3306",
-		    user: "baohan1712413",
-		    password: "buingocbaohan0705",
-		    database: "webcoursetmdt"
-		});
+    host: "db4free.net",
+    port: "3306",
+    user: "nhomecb02",
+    password: "nhom123456789",
+    database: "webcourseb02"
+	});
 module.exports.create = cn;
